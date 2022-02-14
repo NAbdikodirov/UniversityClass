@@ -1,0 +1,31 @@
+//Vectors - Finding the MAX
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   int numItems;
+   vector<int> listItems;
+   int currItem;
+   int i;
+   int maxItem;
+   
+   // Get items
+   cin >> numItems;
+   for (i = 0; i < numItems; ++i) {
+      cin >> currItem;
+      listItems.push_back(currItem);
+   }
+   
+   maxItem = listItems.at(0); // Initializing to value 0 would be WRONG. Can initialize to any arbitrary element's value.
+   for (i = 0; i < numItems; ++i) {
+      if (listItems.at(i) > maxItem) {
+         maxItem = listItems.at(i); // This item is max seen so far, so update the max
+      }
+   }
+   
+   cout << maxItem << endl;
+   
+   return 0;
+}
