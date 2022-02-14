@@ -50,3 +50,46 @@ int main()
    
     return 0;
 }
+
+
+//Arrays with loops
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  const int NUM_ELEMENTS = 8;
+  int userVals[NUM_ELEMENTS];
+  int i;
+  
+  cout << "Enter " << NUM_ELEMENTS << " integer values" << endl;
+  for(i = 0; i < NUM_ELEMENTS; ++i){
+    cout << "Value: ";
+    cin >> userVals[i];
+  }
+  
+  cout << "You entered: ";
+  for(i = 0; i < NUM_ELEMENTS; ++i){
+      cout << userVals[i] << " ";
+  }
+  cout << endl;
+  
+  return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
