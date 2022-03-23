@@ -1,0 +1,36 @@
+//Inheritance -derived classes
+
+// Base class
+class GenericItem {
+   public:
+      void SetName(string newName) { 
+          itemName = newName; 
+      }
+   
+      void SetQuantity(int newQty) {
+          itemQuantity = newQty; 
+      }
+   
+      void PrintItem() {
+          cout << itemName << " " << itemQuantity << endl;
+      }
+   
+   private:
+      string itemName;
+      int itemQuantity;
+};
+
+// Derived class inherits from GenericItem 
+class ProduceItem : public GenericItem { 
+   public:
+      void SetExpiration(string newDate) { 
+          expirationDate = newDate; 
+      }
+   
+      string GetExpiration() { 
+          return expirationDate; 
+      }
+   
+   private:
+      string expirationDate;
+};
