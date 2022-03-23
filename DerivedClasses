@@ -1,0 +1,122 @@
+#include "OfferedCourse.h"
+
+int main() {
+		Course myCourse;
+		OfferedCourse myOfferedCourse;
+
+		string courseNumber, courseTitle;
+		string oCourseNumber, oCourseTitle, instructorName, term, classTime;
+
+		getline(cin, courseNumber);
+		getline(cin, courseTitle);
+
+		getline(cin, oCourseNumber);
+		getline(cin, oCourseTitle);
+		getline(cin, instructorName);
+		getline(cin, term);
+		getline(cin, classTime);
+
+		myCourse.SetCourseNumber(courseNumber);
+		myCourse.SetCourseTitle(courseTitle);
+		myCourse.PrintInfo();
+
+		myOfferedCourse.SetCourseNumber(oCourseNumber);
+		myOfferedCourse.SetCourseTitle(oCourseTitle);
+		myOfferedCourse.SetInstructorName(instructorName);
+		myOfferedCourse.SetTerm(term);
+		myOfferedCourse.SetClassTime(classTime);
+		myOfferedCourse.PrintInfo();
+
+		cout << "   Instructor Name: " << myOfferedCourse.GetInstructorName() << endl;
+		cout << "   Term: " << myOfferedCourse.GetTerm() << endl;
+		cout << "   Class Time: " << myOfferedCourse.GetClassTime() << endl;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Course.h
+#ifndef COURSEH
+#define COURSEH
+#include<iostream>
+#include<string>
+using namespace std;
+class Course{
+    private:
+       string courseNumber;
+       string courseTitle;
+    public:
+       //declare mutators functions
+       void SetCourseNumber(string cnumber);
+       void SetCourseTitle (string cTitle);
+       //declare accessors functions
+       string   GetCourseNumber();
+       string GetCourseTitle();
+       void PrintInfo();
+};
+#endif 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//OfferedCourse.h
+
+#ifndef OFFERED_COURSEH
+#define OFFERED_COURSEH
+#include"Course.h"
+class OfferedCourse : public Course{
+    private:
+        string instructorName;
+        string term;
+        string classTime;
+    public:
+        //declare mutator functions
+        void SetInstructorName(string name);
+        void SetTerm(string term);
+        void SetClassTime(string time);
+        //declare accessors function
+        string GetInstructorName();
+        string GetTerm();
+        string GetClassTime();
+};
+#endif
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Course.cpp
+
+#include "Course.h"
+void Course::SetCourseNumber(string cnumber){
+   this->courseNumber = cnumber;
+}
+void Course::SetCourseTitle(string cTitle){
+   this->courseTitle = cTitle;
+}
+string Course::GetCourseNumber(){
+   return this->courseNumber;
+}
+string Course::GetCourseTitle(){
+   return this->courseTitle;
+}
+void Course::PrintInfo(){
+   cout << "Course Information:" << endl;
+   //spaces in the start of line should be equal to as shown in main
+   cout << " Course Number: " << this->courseNumber << endl;
+   cout << " Course Title: " << this->courseTitle << endl;
+}
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  //OfferedCourse.cpp
+  
+  #include "OfferedCourse.h"
+void OfferedCourse::SetInstructorName(string name){
+   this->instructorName = name;
+}
+void OfferedCourse::SetTerm(string term){
+   this->term = term;
+}
+void OfferedCourse::SetClassTime(string time){
+   this->classTime = time;
+}
+string OfferedCourse::GetInstructorName(){
+   return this->instructorName;
+}
+string OfferedCourse::GetTerm(){
+   return this->term;
+}
+string OfferedCourse::GetClassTime(){
+   return this->classTime;
+}
